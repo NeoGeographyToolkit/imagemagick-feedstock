@@ -16,7 +16,7 @@ fi
 find $PREFIX -name '*.la' -delete
 
 ./configure --prefix=$PREFIX \
-            --enable-hdri=yes \
+            --disable-hdri \
             --with-quantum-depth=16 \
             --disable-docs \
             --disable-static \
@@ -28,11 +28,11 @@ find $PREFIX -name '*.la' -delete
             --with-fftw=yes \
             --with-flif=no \
             --with-fpx=no \
-            --with-fontconfig=yes \
-            --with-freetype=yes \
-            --with-gslib=yes \
-            --with-gvc=yes \
-            --with-jbig=yes \
+            --with-fontconfig=no \
+            --with-freetype=no \
+            --with-gslib=no \
+            --with-gvc=no \
+            --with-jbig=no \
             --with-jpeg=yes \
             --with-lcms=no \
             --with-lqr=no \
@@ -41,17 +41,17 @@ find $PREFIX -name '*.la' -delete
             --with-magick-plus-plus=yes \
             --with-openexr=no \
             --with-openjp2=yes \
-            --with-pango=yes \
+            --with-pango=no \
             --with-perl=no \
             --with-png=yes \
             --with-raqm=no \
             --with-raw=no \
-            --with-rsvg=yes \
+            --with-rsvg=no \
             --with-tiff=yes \
-            --with-webp=yes \
+            --with-webp=no \
             --with-wmf=no \
-            --with-x=yes \
-            --with-xml=yes \
+            --with-x=no \
+            --with-xml=no \
             --with-zlib=yes
 
 make -j$CPU_COUNT
