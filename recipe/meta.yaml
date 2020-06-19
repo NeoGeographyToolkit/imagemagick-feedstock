@@ -1,12 +1,12 @@
-{% set version = "7.0.10-17" %}
+{% set version = "6.8.6-10" %}
 
 package:
   name: imagemagick
   version: {{ version|replace("-", "_") }}
 
 source:
-  url: https://github.com/ImageMagick/ImageMagick/archive/{{ version }}.tar.gz
-  sha256: b1ce4f1bf6b14a74a6b19e0d5871cb4e7841e1679f046c860eacf1c863068361
+  url: http://downloads.sourceforge.net/project/imagemagick/old-sources/6.x/6.8/ImageMagick-{{ version }}.tar.gz
+  sha256: 194f1073ade11d7714f0aa78836e36a0973e02be5a2a8f0487d904e7836f5e9e
 
 build:
   number: 0
@@ -14,36 +14,49 @@ build:
 
 requirements:
   build:
-    - {{ compiler('c') }}
-    - {{ compiler('cxx') }}
-
+        - {{ compiler('c') }}
+        - {{ compiler('cxx') }}
   host:
-    - bzip2
-    - fftw
-    - giflib
-    - jpeg
-    - libpng
-    - libtiff
-    - openjpeg
-    - xz
-    - zlib
+        - curl 7.64.0
+        - libcurl 7.64.0
+        - geos 3.7.3
+        - jpeg 9b
+        - openjpeg 2.1.0
+        - krb5 1.16.3
+        - libedit
+        - libpng 1.6.37
+        - libssh2 1.8.0
+        - libtiff 4.0.9
+        - ncurses 6.1
+        - openssl 1.0.2u
+        - proj4 4.9.3
+        - tk 8.6.10
+        - xz 5.2.5
+        - zlib 1.2.11
   run:
-    - bzip2
-    - fftw
-    - giflib
-    - jpeg
-    - libpng
-    - libtiff
-    - openjpeg
-    - xz
-    - zlib
+        - curl 7.64.0
+        - libcurl 7.64.0
+        - geos 3.7.3
+        - jpeg 9b
+        - openjpeg 2.1.0
+        - krb5 1.16.3
+        - libedit
+        - libpng 1.6.37
+        - libssh2 1.8.0
+        - libtiff 4.0.9
+        - ncurses 6.1
+        - openssl 1.0.2u
+        - proj4 4.9.3
+        - tk 8.6.10
+        - xz 5.2.5
+        - zlib 1.2.11
 
 test:
   commands:
     - convert -version
     - Magick++-config --cflags
-    - conda inspect linkages -p $PREFIX $PKG_NAME  # [not win]
-    - conda inspect objects -p $PREFIX $PKG_NAME  # [osx]
+#    - conda inspect linkages -p $PREFIX $PKG_NAME  # [not win]
+#    - conda inspect objects -p $PREFIX $PKG_NAME  # [osx]
 
 about:
   home: http://www.imagemagick.org/
