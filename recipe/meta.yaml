@@ -1,11 +1,11 @@
-{% set version = "6.8.6-10" %}
+{% set version = "isis4.4.0" %} # synched up to isis dependencies for this version
 
 package:
   name: imagemagick
-  version: {{ version|replace("-", "_") }}
+  version: {{ version }}
 
 source:
-  url: http://downloads.sourceforge.net/project/imagemagick/old-sources/6.x/6.8/ImageMagick-{{ version }}.tar.gz
+  url: http://downloads.sourceforge.net/project/imagemagick/old-sources/6.x/6.8/ImageMagick-6.8.6-10.tar.gz
   sha256: 194f1073ade11d7714f0aa78836e36a0973e02be5a2a8f0487d904e7836f5e9e
 
 build:
@@ -27,12 +27,14 @@ requirements:
         - libpng 1.6.37
         - libssh2 1.8.0
         - libtiff 4.0.9
-        - ncurses 6.1
+        - ncurses 6.2
         - openssl 1.0.2u
         - proj4 4.9.3
         - tk 8.6.10
         - xz 5.2.5
         - zlib 1.2.11
+        - isis   4.4.0
+
   run:
         - curl 7.64.0
         - libcurl 7.64.0
@@ -44,17 +46,18 @@ requirements:
         - libpng 1.6.37
         - libssh2 1.8.0
         - libtiff 4.0.9
-        - ncurses 6.1
+        - ncurses 6.2
         - openssl 1.0.2u
         - proj4 4.9.3
         - tk 8.6.10
         - xz 5.2.5
         - zlib 1.2.11
+        - isis 4.4.0
 
 test:
   commands:
-    - convert -version
-    - Magick++-config --cflags
+#    - convert -version
+#    - Magick++-config --cflags
 #    - conda inspect linkages -p $PREFIX $PKG_NAME  # [not win]
 #    - conda inspect objects -p $PREFIX $PKG_NAME  # [osx]
 
